@@ -23,6 +23,7 @@
     "three-effectcomposer": "0.0.1"
   },
   "devDependencies": {
-    "browserify": "~1.17.2"
+    "browserify": "~1.17.2",
+    "serve": "~1.1.0"
   }
 }
