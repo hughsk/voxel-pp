@@ -24,6 +24,10 @@
   },
   "devDependencies": {
     "browserify": "~1.17.2",
-    "serve": "~1.1.0"
+    "serve": "~1.1.0",
+    "minecraft-skin": "0.0.1",
+    "voxel": "~0.1.1",
+    "voxel-debris": "0.0.4",
+    "voxel-engine": "~0.3.8"
   }
 }
