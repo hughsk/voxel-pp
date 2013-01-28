@@ -2,7 +2,7 @@ var createGame = require('voxel-engine')
 var voxel = require('voxel')
 var skin = require('minecraft-skin')
 var debris = require('voxel-debris')
-var texturePath = '/textures/'
+var texturePath = 'textures/'
 
 var game = window.game = createGame({
   generate: voxel.generator['Valley'],
