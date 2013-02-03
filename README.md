@@ -16,17 +16,17 @@ npm install voxel-pp
 
 ## Usage ##
 
-**`composer(game)`**
+**`postprocessor(game)`**
 
 Enable post processing.
 
-**`composer(game).use(fragmentShader)`**
+**`postprocessor(game).use(fragmentShader)`**
 
 Add a shader pass using the `fragmentShader` string. Includes
 `sampler2D tDiffuse` (the screen texture) and `vec2 vUv` (the current pixel)
 by default.
 
-**`composer(game).use(options)`**
+**`postprocessor(game).use(options)`**
 
 Same as above, but takes an object instead with the following properties,
 all optional:
@@ -34,6 +34,27 @@ all optional:
 * `fragmentShader`
 * `vertexShader`
 * `uniforms`
+
+**`postprocessor(game).addPass(pass)`**
+
+Equivalent to `EffectComposer.addPass` - the following pass types are exposed
+with each instance of `voxel-pp`:
+
+* `postprocessor(game).ShaderPass`
+* `postprocessor(game).RenderPass`
+* `postprocessor(game).MaskPass`
+* `postprocessor(game).ClearMaskPass`
+
+This method also returns the pass instead of the `voxel-pp` instance, so you
+can play around with it directly.
+
+**`postprocessor(game).addPass(type, params, ...)`**
+
+To keep things clean, you can pass the string name of the pass
+(e.g. `ShaderPass` or `MaskPass`) as the first argument, and the parameters
+as the rest:
+
+`postprocessor(game).addPass('MaskPass', scene, camera)`
 
 ## Example ##
 

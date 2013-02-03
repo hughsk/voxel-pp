@@ -4,8 +4,8 @@ module.exports = function(game) {
     , used = false
     , composer
 
-  function render() {
-    composer.composer.render()
+  game.render = function render() {
+    return used ? composer.composer.render() : game.renderer.render(game.scene, game.camera)
   };
 
   function Composer() {
@@ -29,15 +29,21 @@ module.exports = function(game) {
     this.passes.push(new EffectComposer.ShaderPass(params))
     this.updateRenderToScreen()
 
-    if (!used) {
-      used = false
-      game.render = render
-    }
-
     return this
-  }
+  };
+
+  Composer.prototype.addPass = function(pass, params) {
+    if (typeof pass === 'string') {
+      pass = EffectComposer[pass].apply(this, [].slice.call(arguments, 1))
+    }
+    this.composer.addPass(pass)
+    this.updateRenderToScreen()
+
+    return pass
+  };
 
   Composer.prototype.updateRenderToScreen = function() {
+    used = this.passes.length > 1
     this.passes.slice(0, -1).forEach(function(pass) {
       pass.renderToScreen = false
     })
