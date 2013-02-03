@@ -1,6 +1,6 @@
 {
   "name": "voxel-pp",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "GLSL post-processing module for Voxel.js",
   "main": "index.js",
   "scripts": {
