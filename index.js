@@ -39,10 +39,10 @@ module.exports = function(game) {
 
   Composer.prototype.updateRenderToScreen = function() {
     this.passes.slice(0, -1).forEach(function(pass) {
-      if (pass instanceof EffectComposer.ShaderPass) pass.renderToScreen = false
+      pass.renderToScreen = false
     })
     this.passes.slice(-1).forEach(function(pass) {
-      if (pass instanceof EffectComposer.ShaderPass) pass.renderToScreen = true
+      pass.renderToScreen = true
     })
   };
 
