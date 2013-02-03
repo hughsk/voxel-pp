@@ -46,6 +46,14 @@ module.exports = function(game) {
     })
   };
 
+  Composer.prototype.EffectComposer = EffectComposer
+  Composer.prototype.ClearMaskPass = EffectComposer.ClearMaskPass
+  Composer.prototype.CopyShader = EffectComposer.CopyShader
+  Composer.prototype.ShaderPass = EffectComposer.ShaderPass
+  Composer.prototype.RenderPass = EffectComposer.RenderPass
+  Composer.prototype.MaskPass = EffectComposer.MaskPass
+  Composer.prototype.THREE = THREE
+
   composer = new Composer
 
   return composer
