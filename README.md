@@ -42,11 +42,11 @@ code used in the demo.
 
 ``` javascript
 var game = require('voxel-engine')()
-  , voxelpp = require('voxep')
+  , voxelpp = require('voxel-pp')
 
-var composer = voxelpp(game)
+var postprocessor = voxelpp(game)
 
-composer
+postprocessor
   .use(require('./some/fragment/shader.fs'))
   .use({
     fragmentShader: require('./another/fragment/shader.fs'),
