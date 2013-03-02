@@ -1,15 +1,16 @@
 module.exports = function(game) {
   var THREE = game.THREE
-    , EffectComposer = require('three-effectcomposer')(THREE)
+    , EffectComposer = Composer.EffectComposer = require('three-effectcomposer')(THREE)
+    , renderer = game.renderer || game.view.renderer
     , used = false
     , composer
 
   game.render = function render() {
-    return used ? composer.composer.render() : game.renderer.render(game.scene, game.camera)
+    return used ? composer.composer.render() : renderer.render(game.scene, game.camera)
   };
 
   function Composer() {
-    var composer = this.composer = new EffectComposer(game.renderer)
+    var composer = this.composer = new EffectComposer(renderer)
     composer.passes.push(new EffectComposer.RenderPass(game.scene, game.camera))
 
     this.passes = composer.passes
