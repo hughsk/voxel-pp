@@ -1,5 +1,7 @@
 ## voxel-pp ##
 
+**Deprecated**
+
 GLSL post-processing module for Voxel.js! This is a wrapper for
 [@alteredq](http://github.com/alteredq)'s `THREE.EffectComposer`, which allows
 you to stack fragment shaders for nice effects such as Bloom, Blur, Mosaic
